@@ -1,0 +1,24 @@
+@use '../../../../scss/prefix'as p;
+
+.paginate {
+  &.bottom {
+    margin-top: 35px;
+
+    & .pagination {
+      @include p.display-flex();
+      @include p.justify-content(center);
+    }
+  }
+
+  & .pagination {
+    & .badge {
+      background-color: hsl(208deg 12% 63%) !important;
+      color: #fff;
+    }
+
+    & .select-label {
+      padding-left: 15px;
+      padding-top: 7.5px
+    }
+  }
+}

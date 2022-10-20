@@ -1,0 +1,6 @@
+@use './variables'as v;
+@use './prefix'as m;
+
+@mixin shadow-sm($theme: DarkGray) {
+  @include m.box-shadow(0 .125em .25em v.$color-shadow-1)
+}

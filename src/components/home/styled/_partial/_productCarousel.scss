@@ -1,0 +1,126 @@
+@use '../../../../scss/prefix'as p;
+
+.carousel {
+
+
+    & .carousel-control-next,
+    & .carousel-control-prev {
+
+        & span:last-child {
+            display: none;
+        }
+    }
+
+    & .carousel-control-next-icon,
+    & .carousel-control-prev-icon {
+        background-color: rgb(52 58 64 / 16%);
+        padding: 16px;
+        @include p.border-radius(50%);
+        @include p.background-size(50%);
+    }
+
+    & .carousel-img-container {
+        @include p.display-flex();
+        @include p.justify-content(space-around);
+        flex-wrap: wrap;
+    }
+
+    & .img {
+        border: 1px solid gray;
+        background: rgb(52 58 64);
+        width: 500px;
+        height: 500px;
+        @include p.background-size(485px 485px);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    & .carousel-caption {
+        background: transparent;
+        color: black;
+        margin: 0;
+        @include p.display-flex();
+        @include p.justify-content(center);
+        @include p.align-items(center);
+        margin-bottom: -20px;
+        max-width: 300px;
+
+        & .products-card {
+            padding: 0;
+            margin: 0;
+            background: rgb(52 58 64 / 76%);
+            color: white;
+
+            & .card-body>div {
+                max-width: 177px;
+                margin-left: auto;
+                margin-right: auto;
+
+                input {
+                    border: none;
+                }
+            }
+        }
+    }
+
+    & .carousel-indicators {
+        display: none;
+    }
+}
+
+
+@media (max-width: 555px) {
+    .carousel {
+        & .carousel-inner {
+            padding-bottom: 100px;
+
+            & .carousel-item .img {
+                width: 400px;
+                height: 400px;
+                background-size: 385px 385px;
+            }
+
+            & .carousel-item .carousel-caption {
+                top: 305px;
+                margin: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 479px) {
+    .carousel .carousel-inner .carousel-item {
+        & .carousel-caption {
+            top: 305px;
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 445px) {
+    .carousel .carousel-inner .carousel-item {
+        & .img {
+            width: 350px;
+            height: 350px;
+            background-size: 335px 335px;
+        }
+
+        & .carousel-caption {
+            top: 260px;
+        }
+    }
+}
+
+@media (max-width: 385px) {
+    .carousel .carousel-inner .carousel-item {
+        & .img {
+            width: 300px;
+            height: 300px;
+            background-size: 285px 285px;
+        }
+
+        & .carousel-caption {
+            top: 240px;
+        }
+    }
+}

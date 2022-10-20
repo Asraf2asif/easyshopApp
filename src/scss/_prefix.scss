@@ -1,0 +1,181 @@
+/// Mixin to prefix several properties at once
+/// @author Kitty Giraudel
+/// @param {Map} $declarations - Declarations to prefix
+/// @param {List} $prefixes (()) - List of prefixes to print
+@mixin prefix($declarations, $prefixes: (), $important: 0) {
+
+  @each $property,
+  $value in $declarations {
+    @each $prefix in $prefixes {
+      @if $important==1 {
+        #{'-' + $prefix + '-' + $property}: #{$value + '!important'};
+      }
+
+      @else {
+        #{'-' + $prefix + '-' + $property}: $value;
+      }
+    }
+
+    // Output standard non-prefixed declaration
+    @if $important==1 {
+      #{$property}: #{$value + '!important'};
+    }
+
+    @else {
+      #{$property}: $value;
+    }
+  }
+}
+
+@mixin prefix-value($declarations, $prefixes: ()) {
+
+  @each $property,
+  $value in $declarations {
+    @each $prefix in $prefixes {
+      #{$property}: #{'-' + $prefix + '-' + $value};
+    }
+
+    // Output standard non-prefixed declaration
+    #{$property}: $value;
+  }
+}
+
+
+/// Mixins
+/// @author Andy Crone | @andycrone_
+/// + Popular mixins including vendor prefixes for cross-browser support
+
+
+@mixin box-sizing($value) {
+  @include prefix((box-sizing: $value), webkit moz);
+}
+
+@mixin background-size($value) {
+  -webkit-background-size: $value $value;
+  @include prefix((background-size: $value), webkit moz o);
+}
+
+@mixin align-self($value) {
+  -ms-flex-item-align: $value;
+  -ms-grid-row-align: $value;
+  @include prefix((align-self: $value), webkit);
+}
+
+@mixin align-items($value) {
+  -ms-flex-align: $value;
+  -webkit-box-align: $value;
+  -moz-box-align: $value;
+  @include prefix((align-items: $value), webkit);
+}
+
+@mixin display-flex() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  @include prefix-value((display: flex), webkit);
+}
+
+@mixin flex-direction($value) {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  @include prefix-value((flex-direction: $value), webkit ms);
+}
+
+@mixin flex-wrap($value) {
+  @include prefix-value((flex-wrap: $value), webkit ms);
+}
+
+@mixin calc($tag, $value) {
+  @include prefix-value(($tag: $value), webkit ms);
+}
+
+@mixin justify-content($value) {
+  -webkit-box-pack: $value;
+  -moz-box-pack: $value;
+  -ms-flex-pack: $value;
+  @include prefix((justify-content: $value), webkit);
+}
+
+@mixin box-shadow($value) {
+  @include prefix((box-shadow: $value), webkit moz);
+}
+
+@mixin border-radius($value) {
+  @include prefix((border-radius: $value), webkit moz);
+}
+
+@mixin background-size($value, $important: 0) {
+  @include prefix((background-size: $value), webkit moz o, $important);
+}
+
+@mixin linear-gradient($angle, $gradient1, $gradient2) {
+  background-color: $gradient2;
+  /* Fallback Color */
+  background-image: -webkit-gradient(linear, $angle, from($gradient1), to($gradient2));
+  /* Saf4+, Chrome */
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  /* FF3.6 */
+  /* IE10 */
+  /* Opera 11.10+ */
+  @include prefix-value((background-image: linear-gradient($angle, $gradient1, $gradient2)), webkit moz ms o);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=$angle, StartColorStr='#{$gradient1}', EndColorStr='#{$gradient2}');
+}
+
+// === Animations
+@mixin transition($value) {
+  -webkit-transition: #{'-webkit-'+ $value};
+  transition: #{'-webkit-'+ $value};
+  transition: #{$value + ', '+ '-webkit-'+ $value};
+  @include prefix((transition: $value), webkit moz o);
+}
+
+@mixin transform($value, $important: 0) {
+  @include prefix((transform: $value), webkit moz ms o, $important);
+}
+
+@mixin transform-origin($value) {
+  @include prefix((transform-origin: $value), webkit moz ms o);
+}
+
+@mixin animation($value) {
+  @include prefix((animation: $value), webkit moz ms o);
+}
+
+@mixin animation-delay($value) {
+  @include prefix((animation-delay: $value), webkit moz o);
+}
+
+@mixin keyframes($value) {
+  @-webkit-keyframes #{$value} {
+    @content;
+  }
+
+  @-moz-keyframes #{$value} {
+    @content;
+  }
+
+  @-o-keyframes #{$value} {
+    @content;
+  }
+
+  @keyframes #{$value} {
+    @content;
+  }
+}
+
+// === Filters
+@mixin filter($value) {
+  @include prefix((filter: $value), webkit moz ms o);
+}
+
+// === Browser mods
+@mixin appearance($value) {
+  @include prefix((appearance: $value), webkit moz);
+}
+
+@mixin user-select($value) {
+  -webkit-touch-callout: $value;
+  @include prefix((user-select: $value), webkit khtml moz ms);
+}

@@ -1,0 +1,107 @@
+@use '../../../../scss/prefix'as p;
+
+$white: #e8e9ed;
+$gray: #434257;
+$green: #00d084;
+$control-width: 105px;
+$control-height: 36px;
+$control-top-size: $control-height+2px;
+
+.switches {
+    position: relative;
+
+    & [type="checkbox"] {
+        position: absolute;
+        left: -9999px;
+
+        &:checked+label .switch-control {
+            background: $green;
+            padding: 0 $control-top-size - 4px;
+
+            & .off-state {
+                opacity: 0;
+            }
+
+            & .on-state {
+                opacity: 1;
+            }
+
+            & .control-text {
+                color: white;
+            }
+
+            &::before {
+                left: auto;
+                right: -1px;
+            }
+        }
+    }
+
+    & label .switch-control {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        height: $control-height;
+        @include p.border-radius(20px);
+        @include p.box-shadow((inset 0 0 5px rgb(0 0 0 / 40%),
+                1px 1px 0px rgb(0 0 0 / 21%)));
+        background: $gray;
+        transition: all 0.3s;
+        padding-left: $control-top-size - 4px;
+        padding-right: $control-top-size - 8px;
+
+        & i {
+            font-weight: bold;
+            line-height: $control-height;
+            position: absolute;
+            font-size: 1.2em;
+        }
+
+        & .on-state {
+            opacity: 0;
+
+            & i {
+                color: white;
+                left: 12px;
+            }
+
+            & .control-text {
+                position: absolute;
+                padding-left: 0;
+                padding-right: 5px;
+            }
+        }
+
+        & .off-state {
+            opacity: 1;
+
+            & i {
+                color: #2f2e3d;
+                right: 12px;
+            }
+        }
+
+        & .control-text {
+            line-height: $control-height;
+            color: $white;
+            font-weight: bold;
+            padding-left: 11px;
+            font-size: 0.8em;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            right: auto;
+            width: $control-top-size;
+            height: $control-top-size;
+            background: $white;
+            @include p.border-radius(50%);
+            z-index: 1;
+            @include p.transition(transforp 0.3s);
+            @include p.box-shadow(1px 1px 3px rgba(0, 0, 0, 0.6));
+        }
+    }
+}

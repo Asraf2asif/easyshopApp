@@ -1,0 +1,125 @@
+@use './prefix'as p;
+
+$icon-gap-left: 15;
+
+.input-custom {
+  &>.info-heading {
+    @include p.transform(translateY(15px));
+
+    &>i {
+      cursor: pointer;
+      font-size: 0.78em;
+
+      &:hover {
+        color: darken(#ff416c, 0.3);
+      }
+    }
+  }
+
+  &>label,
+  &>.info-heading,
+  &>.info-heading>i {
+    color: rgb(0 0 0 / 50%);
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+
+  &>.input-holder {
+    margin-bottom: 12px;
+    position: relative;
+
+    &>.icon {
+      margin-left: $icon-gap-left * 1px;
+      position: absolute;
+      font-size: 16px;
+      color: #121412bf;
+      text-align: center;
+      top: 50%;
+      @include p.transform(translateY(-50%));
+
+      &:hover {
+        color: #ff416c;
+      }
+    }
+
+    &>.show-pass {
+      right: 0;
+      margin-right: $icon-gap-left * 1px;
+      cursor: pointer;
+    }
+
+    &>input,
+    &>.user-info {
+      padding: 12px 15px;
+      margin: 8px 0;
+      width: 100%;
+      padding-left: 35px;
+
+      &>i {
+        font-size: 0.7em;
+        color: #3e3d3d;
+      }
+    }
+
+    &>input {
+      background-color: #f8f8ff;
+      border-radius: 2px;
+      border: 1px solid rgb(194, 194, 194);
+    }
+
+    &>.user-info {
+      background-color: transparent;
+      border-bottom: 1px solid #8d8a8a;
+      padding-left: 25px;
+    }
+  }
+
+  &.fa-props {
+    & .input-holder>input {
+      padding-left: $icon-gap-left + 28px;
+    }
+
+    &.editing {
+      & .input-holder>input {
+        padding-left: $icon-gap-left * 1px;
+        padding-right: $icon-gap-left * 1px;
+      }
+    }
+
+    &.with-info.edit-password {
+      & .input-holder>input {
+        padding-left: $icon-gap-left * 1px;
+        padding-right: $icon-gap-left + 22px;
+      }
+    }
+  }
+
+  &.info {
+    cursor: pointer;
+    @include p.transition(all .17s ease);
+
+    &:hover {
+      @include p.transform(scale(1.03));
+    }
+
+    &>.input-holder>.icon {
+      margin-left: 0;
+    }
+  }
+
+  &.editing {
+    & .input-holder>.icon {
+      right: 0;
+      cursor: pointer;
+      margin-right: $icon-gap-left * 1px;
+    }
+
+    &.with-info.edit-password {
+      & .input-holder>.icon {
+        &.show-pass {
+          margin-right: 40px;
+        }
+      }
+    }
+  }
+}

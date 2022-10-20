@@ -1,0 +1,9 @@
+@use '../../../../scss/variables'as v;
+// @use '../../../../scss/mixins'as m;
+
+.sort-type-indicator {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: v.$color-gray-2;
+}

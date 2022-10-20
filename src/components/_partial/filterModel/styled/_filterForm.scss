@@ -1,0 +1,14 @@
+@use '../../../../scss/prefix'as p;
+
+.esc-or-click-btn {
+    background: white;
+    border: 1px solid rgba(85, 89, 92, 0.2);
+    color: rgba(85, 89, 92, 0.84);
+    cursor: pointer;
+    font-size: 0.8em;
+    padding: 3px 3px;
+    position: absolute;
+    right: 0px;
+    top: 45px;
+    z-index: 12;
+}

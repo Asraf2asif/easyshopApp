@@ -1,0 +1,133 @@
+@use '../../../../scss/prefix'as p;
+
+// will be commented: start
+// *,
+// *:after,
+// *:before {
+//   box-sizing: border-box;
+// }
+
+// a {
+//   text-decoration: none;
+//   color: black;
+// }
+
+// $color-bg-primary: darken(darkgray, 40%);
+
+// body {
+//   background-color: $color-bg-primary;
+// }
+// will be commented: end
+
+$color-bg-primary-offset: #455a64;
+$color-bg-secondary: #fff;
+$color-border: #404040;
+$display: inline-block;
+$btn-border-radius: 5px;
+$btn-padding: 8px;
+$menu-shadow: 0 10px 20px rgba($color-border, 0.15);
+
+.nav-menu {
+    display: $display;
+    margin: 5px 5px;
+    background-color: $color-bg-secondary;
+    @include p.border-radius($btn-border-radius);
+    background-color: transparent;
+
+    & .menu-list {
+        margin: 0;
+        display: $display;
+
+        & .menu-item {
+            position: relative;
+            // min-width: 90px;
+
+            & .menu-link {
+                & .menu-button {
+                    cursor: pointer;
+                    border: 0;
+                    width: 100%;
+                    padding: $btn-padding;
+                    padding-left: 10px;
+                    font-weight: bold;
+                    font-size: 1.1em;
+                    text-align: left;
+                    background-color: $color-bg-secondary;
+                    border-bottom: 1px solid #343a4038;
+
+                    &:hover {
+                        background-color: $color-bg-primary-offset;
+                        color: white;
+                    }
+                }
+
+                & .parent-btn {
+                    text-align: center;
+                    background: transparent;
+                    color: white;
+                    // font-size: 1.1em;
+                }
+
+                &:hover {
+                    // border: 1px solid rgb(206 212 218 / 60%);
+
+                    & .parent-btn {
+                        background: transparent;
+                    }
+                }
+
+                &:hover+.menu-sub-list {
+                    display: $display;
+                }
+            }
+
+            & .menu-sub-list {
+                display: none;
+                background-color: transparent;
+                @include p.border-radius($btn-border-radius);
+                padding-top: 2px;
+                position: absolute;
+                z-index: 100;
+                width: 100px;
+                @include p.box-shadow(0 1rem 3rem rgba(0, 0, 0, .175));
+
+
+                & .menu-item:last-child>.menu-link>.menu-button {
+                    border: none;
+                }
+
+                & .menu-sub-list {
+                    padding-top: 0;
+                    // padding-left: 4px;
+
+                    & .menu-button {
+                        background-color: white;
+                        color: black;
+                        border-bottom: 1px solid #343a4038;
+
+                        &:hover {
+                            background-color: $color-bg-primary-offset;
+                            color: white;
+                        }
+                    }
+                }
+
+                &:hover {
+                    display: $display;
+                }
+            }
+
+            & .align-right {
+                left: 100%;
+                top: 0;
+            }
+
+            & .align-bottom {
+                top: 100%;
+                left: 0;
+            }
+
+
+        }
+    }
+}

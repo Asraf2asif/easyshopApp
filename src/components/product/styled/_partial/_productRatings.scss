@@ -1,0 +1,66 @@
+@use '../../../../scss/prefix'as p;
+
+$star-color-0: #DFDFDF;
+$star-color-1: #EB2228;
+$star-color-2: #FA6837;
+$star-color-3: #FFAE38;
+$star-color-4: #87D44A;
+$star-color-5: #26B539;
+
+.star-5 .fa-star,
+.star-5 .fa-star-half-stroke {
+    color: $star-color-5;
+}
+
+.star-4 .fa-star,
+.star-4 .fa-star-half-stroke {
+    color: $star-color-4;
+}
+
+.star-3 .fa-star,
+.star-3 .fa-star-half-stroke {
+    color: $star-color-3;
+}
+
+.star-2 .fa-star,
+.star-2 .fa-star-half-stroke {
+    color: $star-color-2;
+}
+
+.star-1 .fa-star,
+.star-1 .fa-star-half-stroke {
+    color: $star-color-1;
+}
+
+.products-ratings {
+    .bar-container {
+        width: 100%;
+        background-color: #f1f1f1;
+        text-align: center;
+        color: white;
+    }
+
+    .bar {
+        height: 18px;
+    }
+
+    .star-5 .bar {
+        background-color: $star-color-5;
+    }
+
+    .star-4 .bar {
+        background-color: $star-color-4;
+    }
+
+    .star-3 .bar {
+        background-color: $star-color-3;
+    }
+
+    .star-2 .bar {
+        background-color: $star-color-2;
+    }
+
+    .star-1 .bar {
+        background-color: $star-color-1;
+    }
+}

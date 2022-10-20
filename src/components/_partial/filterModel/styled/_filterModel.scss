@@ -1,0 +1,45 @@
+@use '../../../../scss/prefix'as p;
+
+.filter-model {
+    display: none;
+    opacity: 0;
+    z-index: 4;
+
+    & .search-btn-top,
+    & .close-btn-top,
+    & .clear-btn {
+        background: white;
+        position: absolute;
+    }
+
+    & .search-btn-top,
+    & .clear-btn {
+        border-width: 1px;
+        @include p.box-shadow(rgb(124 124 124 / 31%) 0px 1px 1px);
+    }
+
+    & .search-btn-top {
+        border-color: rgba(124, 124, 124, 0.38);
+        color: rgb(124, 124, 124);
+        padding: 6px;
+        top: -15px;
+        right: 32px;
+    }
+
+    & .close-btn-top {
+        cursor: pointer;
+        @include p.border-radius(50%);
+        color: rgb(127 127 127);
+        font-size: 1.7em;
+        right: -10px;
+        top: -10px;
+        z-index: 4;
+    }
+
+    & .clear-btn {
+        color: rgb(124, 124, 124);
+        padding: 4px;
+        top: -3px;
+        right: 0px;
+    }
+}

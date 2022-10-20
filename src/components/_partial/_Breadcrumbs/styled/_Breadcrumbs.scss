@@ -1,0 +1,137 @@
+@use '../../../../scss/prefix'as p;
+@use "sass:math";
+
+$white : #fff;
+$color-active : #37474F;
+$color-even : #455A64;
+$color-hover : darken($color-even, 10%);
+$height : 30px;
+
+.breadcrumb {
+    list-style: none;
+    display: inline-block;
+
+    li {
+        float: left;
+
+        a {
+            color: #4b4d4d;
+            display: block;
+            background: $white;
+            text-decoration: none;
+            position: relative;
+            height: $height;
+            line-height: $height;
+            padding: 0 10px 0 5px;
+            text-align: center;
+            margin-left: 23px;
+            margin-top: 5px;
+        }
+
+        &:nth-child(even) {
+            a {
+                background-color: $color-even;
+                color: white;
+
+                &:before {
+                    border-color: $color-even;
+                    border-left-color: transparent;
+                }
+
+                &:after {
+                    border-left-color: $color-even;
+                }
+
+
+            }
+        }
+
+        &:first-child {
+            a {
+                padding-left: 15px;
+                margin-left: 0;
+                @include p.border-radius(4px 0 0 4px);
+
+                &:before {
+                    border: none;
+                    content: none;
+                }
+            }
+        }
+
+        &:last-child {
+            a {
+                padding-right: 15px;
+                background: $color-active;
+                color: white;
+                @include p.border-radius(0 4px 4px 0);
+
+                &:before {
+                    border-color: $color-active;
+                    border-left-color: transparent;
+                }
+
+                &:after {
+                    border: none;
+                    content: none;
+                }
+
+                &:hover {
+                    background-color: $color-active;
+                    color: white;
+                    cursor: default;
+                    cursor: not-allowed;
+
+                    &:before {
+                        border-color: $color-active;
+                        border-left-color: transparent;
+                    }
+
+                    &:after {
+                        border-left-color: $color-active;
+                    }
+                }
+            }
+        }
+
+        a {
+
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                border: 0 solid $white;
+                border-width: math.div($height, 2) 10px;
+                width: 0;
+                height: 0;
+            }
+
+            &:before {
+                left: -20px;
+                border-left-color: transparent;
+            }
+
+            &:after {
+                left: 100%;
+                border-color: transparent;
+                border-left-color: $white;
+            }
+
+            &:hover {
+                background-color: $color-hover;
+                color: white;
+
+                &:before {
+                    border-color: $color-hover;
+                    border-left-color: transparent;
+                }
+
+                &:after {
+                    border-left-color: $color-hover;
+                }
+            }
+
+        }
+    }
+}

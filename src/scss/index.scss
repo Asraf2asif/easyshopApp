@@ -1,0 +1,23 @@
+// main
+@use 'main';
+// 2ColLayout
+@use 'TwoColLayout';
+@use 'input';
+// admin
+@use './../components/admin/styled/orderListScreen';
+@use './../components/admin/styled/userListScreen';
+@use './../components/admin/styled/_partial/sortControl';
+// home
+@use './../components/home/styled/_partial/Header';
+@use './../components/home/styled/_partial/productCarousel';
+@use './../components/home/styled/_partial/product';
+// product
+@use './../components/product/styled/_partial/productRatings';
+// cart
+@use './../components/cart/styled/_partial/shipping/checkoutSteps';
+// global partial
+@use './../components/_partial/_switch/styled/switch';
+@use './../components/_partial/_paginate/styled/paginate';
+@use './../components/_partial/_Breadcrumbs/styled/Breadcrumbs';
+@use './../components/_partial/filterModel/styled/filterModel';
+@use './../components/_partial/filterModel/styled/filterForm';

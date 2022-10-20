@@ -1,0 +1,17 @@
+@use '../../../scss/prefix'as p;
+
+.admin-control {
+    button {
+        min-width: 94px;
+    }
+}
+
+.delete-btn {
+    button {
+        @include p.border-radius(50%);
+    }
+
+    i {
+        font-size: 1.3em;
+    }
+}

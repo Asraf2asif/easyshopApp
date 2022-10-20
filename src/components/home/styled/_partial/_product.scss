@@ -1,0 +1,34 @@
+@use '../../../../scss/prefix'as p;
+
+.products-card {
+    max-width: 400px;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    & .card-body {
+        @include p.flex-direction(column);
+    }
+
+    & .products-img {
+        width: 100%;
+    }
+
+    & .products-price {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    
+    & .ibtn-font-size {
+        font-size: 1.2em;
+    }
+}
+
+.secondary-info-small {
+    font-size: .7em;
+    color: #878787;
+    padding-left: 2px;
+}
