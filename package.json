@@ -2,7 +2,6 @@
   "name": "easyshop-app",
   "version": "0.1.0",
   "author": "Asraf2asif",
-  "license": "UNLICENSED",
   "private": true,
   "dependencies": {
     "@stitches/core": "^1.2.8",
