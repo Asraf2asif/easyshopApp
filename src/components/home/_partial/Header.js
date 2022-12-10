@@ -18,7 +18,7 @@ const Header = () => {
   };
 
   if (path !== "/") {
-    loginUrl["search"] = `?redirect=/login${path}`;
+    loginUrl["search"] = `?redirect=${path}`;
   }
 
   const logoutHandler = (e) => {
