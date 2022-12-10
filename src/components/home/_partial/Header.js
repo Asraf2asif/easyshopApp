@@ -12,10 +12,14 @@ const Header = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const path = location.pathname;
-  const loginUrl =
-    path === "/"
-      ? `${process.env.REACT_APP_BASE_URL}/login`
-      : `${process.env.REACT_APP_BASE_URL}/login/?redirect=${process.env.REACT_APP_BASE_URL}/${path}`;
+
+  const loginUrl = {
+    pathname: "/login",
+  };
+
+  if (path === "/") {
+    loginUrl["search"] = `?redirect=/login/${path}`;
+  }
 
   const logoutHandler = (e) => {
     e.preventDefault();
