@@ -15,7 +15,7 @@ const Header = () => {
   const loginUrl =
     path === "/"
       ? `${process.env.REACT_APP_BASE_URL}/login`
-      : `${process.env.REACT_APP_BASE_URL}/login/?redirect=${path}`;
+      : `${process.env.REACT_APP_BASE_URL}/login/?redirect=${process.env.REACT_APP_BASE_URL}/${path}`;
 
   const logoutHandler = (e) => {
     e.preventDefault();
