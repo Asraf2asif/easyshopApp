@@ -75,7 +75,7 @@ const Header = () => {
                 </NavDropdown.Item>
               </NavDropdown>
             ) : (
-              <LinkContainer to={loginUrl.toString()} className="pointer">
+              <LinkContainer to={loginUrl} className="pointer">
                 <Navbar.Text className="ml-3">
                   <i className="fa-regular fa-user" />
                   &nbsp; Login
