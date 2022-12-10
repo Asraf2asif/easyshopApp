@@ -1,23 +1,23 @@
-import React from 'react';
-import { Table, Button } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
-import { formateDate } from '../../../../../util/helperFunct';
-import Message from '../../../../_partial/Message';
+import React from "react";
+import { Table, Button } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import { formateDate } from "../../../../../util/helperFunct";
+import Message from "../../../../_partial/Message";
 
 export const OrderTab = ({ title, order }) => {
   const tableRow = 6;
   return (
     <>
       {order.length > 0 ? (
-        <Table striped bordered hover responsive className='table-sm'>
+        <Table striped bordered hover responsive className="table-sm">
           <thead>
             <tr>
               <th>DATE</th>
               <th>PRICE</th>
-              {(title === 'Not delivered' || title === 'Delivered') && (
+              {(title === "Not delivered" || title === "Delivered") && (
                 <th>PAID AT</th>
               )}
-              {title === 'Delivered' && <th>DELIVERED AT</th>}
+              {title === "Delivered" && <th>DELIVERED AT</th>}
               <th></th>
             </tr>
           </thead>
@@ -28,13 +28,18 @@ export const OrderTab = ({ title, order }) => {
                 <tr key={_id}>
                   <td>{formateDate(createdAt)}</td>
                   <td>{totalPrice}</td>
-                  {(title === 'Not delivered' || title === 'Delivered') && (
+                  {(title === "Not delivered" || title === "Delivered") && (
                     <td>{formateDate(paidAt)}</td>
                   )}
-                  {title === 'Delivered' && <td>{formateDate(deliveredAt)}</td>}
+                  {title === "Delivered" && <td>{formateDate(deliveredAt)}</td>}
                   <td>
-                    <LinkContainer to={`/order/${_id}?ref=profile`}>
-                      <Button className='btn-sm' variant='light'>
+                    <LinkContainer
+                      to={{
+                        pathname: `/order/${_id}`,
+                        search: `?ref=profile`,
+                      }}
+                    >
+                      <Button className="btn-sm" variant="light">
                         Details
                       </Button>
                     </LinkContainer>
@@ -44,7 +49,7 @@ export const OrderTab = ({ title, order }) => {
           </tbody>
         </Table>
       ) : (
-        <Message variant='info' fadeTimeout='false'>
+        <Message variant="info" fadeTimeout="false">
           No {title} order
         </Message>
       )}
