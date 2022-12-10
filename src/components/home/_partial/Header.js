@@ -17,7 +17,7 @@ const Header = () => {
     pathname: "/login",
   };
 
-  if (path === "/") {
+  if (path !== "/") {
     loginUrl["search"] = `?redirect=/login/${path}`;
   }
 
