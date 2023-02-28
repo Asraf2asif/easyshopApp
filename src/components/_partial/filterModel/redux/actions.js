@@ -7,7 +7,7 @@ import {
 
 import { errDispatch, userTokenConfig } from '../../../../util/helperFunct';
 
-const baseUrl = process.env.BASE_URL;
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export const listField = (dbName, fields) => async (dispatch) => {
   try {
