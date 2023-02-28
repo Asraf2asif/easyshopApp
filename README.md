@@ -1,5 +1,5 @@
 # EasyShop Ecommerce (working) 
-Easy-to-use MERN eCommerce app with modern design and slightly different approch for better experience. Many awesome code and features yet to come in that project.
+Frontend part of my Easy-to-use MERN eCommerce portfolio app with modern design and slightly different approch for better experience. Many awesome code and features yet to come in that project.
 
 ### Its features:
 - product category, 
