@@ -50,5 +50,5 @@ This project is owned by [Asraf2asif](https://github.com/Asraf2asif) for this [p
 
 ## Screenshot
 ### Product carousel
-<img src="https://raw.githubusercontent.com/Asraf2asif/easyshopApp/master/Screenshot/01%20-%20Product%20carousel.png" width="800">
+<img src="https://raw.githubusercontent.com/Asraf2asif/easyshopApp/master/Screenshot/01%20-%20Product%20carousel.png" width="100%">
 
